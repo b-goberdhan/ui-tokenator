@@ -1,0 +1,8 @@
+colors: 
+  main:  'red'
+  buttons:
+    primary: 
+      color: 'blue'
+    secondary:
+      color: 'purple'
+  stuff: [1,2,3,4]
