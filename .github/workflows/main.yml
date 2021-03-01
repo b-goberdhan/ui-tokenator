@@ -44,7 +44,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{steps.generate_semver.outputs.verion_tag}}
+          tag_name: ${{steps.generate_semver.outputs.version_tag}}
           release_name: Release ${{steps.generate_semver.outputs.verion}}
             
         
