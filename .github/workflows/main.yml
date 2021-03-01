@@ -37,7 +37,7 @@ jobs:
       - name: Build and Publish image
         uses: docker/build-push-action@v2.3.0
         with:
-          tags: brandongdev/theme:latest,brandongdev/theme:${{steps.generate_semver.version}}
+          tags: brandongdev/theme:latest,brandongdev/theme:${{steps.generate_semver.outputs.version}}
           
             
         
