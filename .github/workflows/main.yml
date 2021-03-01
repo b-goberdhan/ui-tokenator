@@ -41,6 +41,8 @@ jobs:
           tags: brandongdev/theme:latest,brandongdev/theme:${{steps.generate_semver.outputs.version}}
       - name: Updated release tag
         uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{steps.generate_semver.outputs.verion_tag}}
           release_name: Release ${{steps.generate_semver.outputs.verion}}
