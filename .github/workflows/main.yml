@@ -30,7 +30,7 @@ jobs:
           format: "${major}.${minor}.${patch}-prerelease${increment}"
           short_tags: false
       - name: Login to DockerHub
-        uses: docker/login-action@1.8.0
+        uses: docker/login-action@v1.8.0
         with:
           username: ${{secrets.DOCKER_HUB_USERNAME}}
           password: ${{secrets.DOCKER_HUB_PASSWORD}}
