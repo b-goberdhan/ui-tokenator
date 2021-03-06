@@ -9,8 +9,6 @@ COPY ./ ./
 ADD ./api ./api
 ADD ./build-tools ./build-tools
 ADD ./constants ./constants
-ADD ./generator ./generator
-ADD ./validator ./validator
 
 ADD ${TOKEN_DEFINITIONS_PATH} ./definitions
 RUN npm install

@@ -1,7 +1,6 @@
 const { Validator } = require('jsonschema');
 
 const validateJSON = (json) => {
-    let isValid = false;
     const validator = new Validator();
     const keys = Object.keys(json);
     const keysSchema = {

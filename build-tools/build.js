@@ -1,24 +1,25 @@
 const rimraf = require('rimraf');
 const fs = require('fs');
-const { generateCss, generateSass } = require('../config');
-const { json, css, sass } = require('../generator');
+const { generateCss, generateSass, generateJson } = require('../config');
+const { json, css, sass } = require('./generator');
+const { parse } = require('./parser/parser');
 
-const buildPath = './generated-tokens';
+const generatedTokensPath = './generated-tokens';
 
 const clean = () => {
-    rimraf.sync(buildPath);
-    fs.mkdirSync(`${buildPath}`);
-}
+    rimraf.sync(generatedTokensPath);
+    fs.mkdirSync(`${generatedTokensPath}`);
+};
 
 clean();
-const jsonTokens = json(buildPath);
+const jsonTokens = parse();
 if (!jsonTokens) {
     console.error("Error generating tokens, ensure '.' character is not being used in your YAML ");
     process.exit(1);
 }
 else {
-    generateCss && css(buildPath, jsonTokens);
-    generateSass && sass(buildPath, jsonTokens);
-
+    generateJson && json(generatedTokensPath, jsonTokens)
+    generateCss && css(generatedTokensPath, jsonTokens);
+    generateSass && sass(generatedTokensPath, jsonTokens);
 }
 

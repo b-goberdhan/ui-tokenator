@@ -11,7 +11,7 @@ const router = (app) => {
     app.get(`${STYLE_ROUTE}/json`, (req, res) => {
         res.sendFile(path.resolve('./generated-tokens/tokens.json'));
     });
-}
+};
 module.exports = {
     router
 }
