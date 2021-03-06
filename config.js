@@ -1,4 +1,11 @@
-const themeDefinitionsPath = process.env.THEME_DEFINITIONS_PATH || './definitions';
+
 const environmentName = process.env.ENVIRONMENT_NAME || 'production';
+const generateCss = process.env.GENERATE_CSS || true;
+const generateSass = process.env.GENERATE_SASS || true;
 const port = process.env.PORT || 4000;
-module.exports = {themeDefinitionsPath, environmentName, port};
+module.exports = {
+    environmentName, 
+    generateCss,
+    generateSass,
+    port
+};

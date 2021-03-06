@@ -1,17 +1,23 @@
 FROM node:14
-ENV THEME_DEFINITIONS_PATH='./definitions'
+ENV TOKEN_DEFINITIONS_PATH='./definitions'
 ENV PORT=8080
 ENV NODE_ENV='production'
 WORKDIR /theme/app
 
 COPY package*.json ./
-COPY ./schema/schema.js ./schema/schema.js
-COPY app.js app.js
-COPY config.js config.js
+COPY ./ ./
+ADD ./api ./api
+ADD ./build-tools ./build-tools
+ADD ./constants ./constants
+ADD ./generator ./generator
+ADD ./validator ./validator
 
-ADD ${THEME_DEFINITIONS_PATH} ${THEME_DEFINITIONS_PATH}
+RUN ls -R -Inode_modules
+ADD ${TOKEN_DEFINITIONS_PATH} ./definitions
 RUN npm install
+RUN npm run build
+RUN ls -R -Inode_modules
 
 EXPOSE ${PORT}
-CMD ["npm", "run", "start" ]
+CMD ["npm", "run", "prod" ]
 

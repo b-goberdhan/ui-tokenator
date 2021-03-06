@@ -1,2 +1,6 @@
 # definitions
 node_modules
+generated-tokens
+
+.gitignore
+.github

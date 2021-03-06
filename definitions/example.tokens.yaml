@@ -1,0 +1,7 @@
+## Basic example ui tokens
+
+example-background-main-1: red
+example-background-main-2: blue
+example-size-1: '1px'
+example-size-2: '5px'
+example-size-3: '10px'
