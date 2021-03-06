@@ -12,11 +12,8 @@ ADD ./constants ./constants
 ADD ./generator ./generator
 ADD ./validator ./validator
 
-RUN ls -R -Inode_modules
 ADD ${TOKEN_DEFINITIONS_PATH} ./definitions
 RUN npm install
-RUN npm run build
-RUN ls -R -Inode_modules
 
 EXPOSE ${PORT}
 CMD ["npm", "run", "prod" ]

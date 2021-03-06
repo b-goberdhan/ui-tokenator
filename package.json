@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node build-tools/build.js ",
+    "build-only": "node build-tools/build.js ",
     "dev": "nodemon app.js",
-    "prod": "node app.js"
+    "prod": "node build-tools/build.js && node app.js"
   },
   "author": "",
   "license": "ISC",
