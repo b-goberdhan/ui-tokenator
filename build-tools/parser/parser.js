@@ -2,13 +2,19 @@ const fs = require('fs');
 const _ = require('lodash');
 const YAML = require('yaml');
 const { validateJSON } = require('../validator/validator');
+const { usePlaceHolderDefinition } = require('../../config');
 
 const tokenDefinitionsPath = './definitions';
-
+const placeHolderFileName = '_placeholder.yaml'
 const discoverDefinitions = () => {
     const definitionFiles = [];
     fs.readdirSync(tokenDefinitionsPath).forEach(file => {
-        definitionFiles.push(`${tokenDefinitionsPath}/${file}`);
+        if (file === placeHolderFileName) {
+            usePlaceHolderDefinition && definitionFiles.push(`${tokenDefinitionsPath}/${file}`);
+        }
+        else {
+            definitionFiles.push(`${tokenDefinitionsPath}/${file}`);
+        }
     });
     return definitionFiles;
 };

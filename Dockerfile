@@ -1,7 +1,11 @@
 FROM node:14
-ENV TOKEN_DEFINITIONS_PATH='./definitions'
-ENV PORT=8080
 ENV NODE_ENV='production'
+ENV USE_PLACE_HOLDER_DEFINITION=true
+ENV GENERATE_JSON=true
+ENV GENERATE_CSS=true
+ENV GENERATE_SASS=true
+ENV PORT=8080
+
 WORKDIR /theme/app
 
 COPY package*.json ./
@@ -10,7 +14,7 @@ ADD ./api ./api
 ADD ./build-tools ./build-tools
 ADD ./constants ./constants
 
-ADD ${TOKEN_DEFINITIONS_PATH} ./definitions
+COPY ./definitions/_placeholder.yaml ./definitions/_placeholder.yaml
 RUN npm install
 
 EXPOSE ${PORT}

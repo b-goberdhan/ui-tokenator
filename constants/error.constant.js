@@ -1,4 +1,4 @@
 
 module.exports = {
-    ERROR_SCHEMA_NOT_VALID: 'Schema format is not valid, each entry must be a string type'
+    ERROR_COULD_NOT_PARSE: "Error parsing design token definitons, ensure '.' character is not being used in your YAML"
 }
