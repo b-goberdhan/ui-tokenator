@@ -1,4 +1,4 @@
-# ui-design-tokenizer
+# ui-tokenator
 
 ## Usage
 
