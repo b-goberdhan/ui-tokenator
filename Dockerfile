@@ -14,9 +14,8 @@ ADD ./api ./api
 ADD ./build-tools ./build-tools
 ADD ./constants ./constants
 
-COPY ./definitions/_placeholder.yaml ./definitions/_placeholder.yaml
+COPY ./definitions/_placehlder.yaml ./definitions/_placeholder.yaml
 RUN npm install
 
 EXPOSE ${PORT}
 CMD ["npm", "run", "prod" ]
-
